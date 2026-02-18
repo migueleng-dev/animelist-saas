@@ -1,0 +1,22 @@
+.App {
+  min-height: 100vh;
+  position: relative;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remover marcas da plataforma */
+*[class*="made-with"],
+*[class*="powered-by"],
+*[data-testid*="branding"],
+a[href*="emergent"] {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  left: -9999px !important;
+}

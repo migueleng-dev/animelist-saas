@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "backend/server.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "backend/server.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "frontend/$1"
+    }
+  ],
+  "env": {
+    "MONGO_URL": "mongodb+srv://miguelangelorfaria_db_user:pI9yKo7cLYKTuQ5V@cluster0.hijudsb.mongodb.net/?appName=Cluster0",
+    "DB_NAME": "anime_tracker",
+    "JWT_SECRET": "meu-projeto-anime-super-secreto-2024-seguro",
+    "CORS_ORIGINS": "*"
+  }
+}
